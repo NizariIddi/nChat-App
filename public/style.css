@@ -1,0 +1,491 @@
+/* ============================================
+   DARK MODE STYLES - Add to your style.css
+   ============================================ */
+
+/* Dark mode for body */
+body.dark {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+/* Dark mode for sidebar */
+.sidebar.dark {
+  background: #1f2937;
+  border-right-color: #374151;
+}
+
+.sidebar.dark>div:first-child {
+  border-bottom-color: #374151;
+}
+
+.sidebar.dark h2 {
+  color: #e5e7eb;
+}
+
+.sidebar.dark .search input {
+  background: #374151;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+.sidebar.dark .search input::placeholder {
+  color: #9ca3af;
+}
+
+.sidebar.dark .search input:focus {
+  background: #4b5563;
+  border-color: #3b82f6;
+}
+
+.sidebar.dark .contact-list::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.sidebar.dark .me {
+  background: #374151;
+  border-top-color: #4b5563;
+}
+
+.sidebar.dark .me-name {
+  color: #e5e7eb;
+}
+
+.sidebar.dark .me-email {
+  color: #9ca3af;
+}
+
+/* Dark mode for contacts */
+.dark .contact {
+  color: #e5e7eb;
+}
+
+.dark .contact:hover {
+  background: #374151;
+}
+
+.dark .contact.active {
+  background: #374151;
+}
+
+.dark .contact .name {
+  color: #e5e7eb;
+}
+
+.dark .contact .status {
+  color: #9ca3af;
+}
+
+/* Dark mode for chat area */
+.chat.dark,
+body.dark .chat {
+  background: #111827;
+}
+
+/* Dark mode for chat header */
+.chat-header.dark,
+body.dark .chat-header {
+  background: #1f2937;
+  border-bottom-color: #374151;
+}
+
+body.dark .chat-peer .peer-name {
+  color: #e5e7eb;
+}
+
+body.dark .chat-peer .peer-status {
+  color: #9ca3af;
+}
+
+/* Dark mode for messages area */
+body.dark .messages {
+  background: #111827;
+}
+
+body.dark .messages::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+/* Dark mode for message bubbles */
+body.dark .msg.me {
+  background: #3b82f6;
+  color: white;
+}
+
+body.dark .msg.them {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+body.dark .msg time {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark .msg.them time {
+  color: #9ca3af;
+}
+
+/* Dark mode for typing indicator */
+body.dark .typing {
+  background: #374151;
+  color: #9ca3af;
+}
+
+/* Dark mode for send form */
+body.dark .send {
+  background: #1f2937;
+  border-top-color: #374151;
+}
+
+body.dark .send #message-input {
+  background: #374151;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark .send #message-input::placeholder {
+  color: #9ca3af;
+}
+
+body.dark .send #message-input:focus {
+  background: #4b5563;
+  border-color: #3b82f6;
+}
+
+body.dark .send #emoji-btn,
+body.dark .send #file-btn,
+body.dark #audio-controls i {
+  color: #9ca3af;
+}
+
+body.dark .send #emoji-btn:hover,
+body.dark .send #file-btn:hover,
+body.dark #audio-controls i:hover {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+/* Dark mode for dropdowns */
+body.dark .dropdown-menu {
+  background: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .dropdown-title {
+  color: #e5e7eb;
+  border-bottom-color: #374151;
+}
+
+body.dark .dropdown-menu label {
+  color: #e5e7eb;
+}
+
+body.dark .dropdown-menu input {
+  background: #374151;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark .dropdown-menu input:focus {
+  background: #4b5563;
+  border-color: #3b82f6;
+}
+
+body.dark .dropdown-menu select {
+  background: #374151;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark .dropdown-menu button {
+  background: #3b82f6;
+  color: white;
+}
+
+body.dark .dropdown-menu button:hover {
+  background: #2563eb;
+}
+
+body.dark .dropdown-menu .muted {
+  color: #6b7280;
+}
+
+body.dark .settings-row span {
+  color: #e5e7eb;
+}
+
+/* Dark mode for emoji picker */
+body.dark .emoji-picker {
+  background: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode for image preview */
+body.dark .image-preview {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+/* Dark mode for action menu (context menu) */
+body.dark .message-action-menu {
+  background: rgba(31, 41, 55, 0.95) !important;
+  border-color: rgba(75, 85, 99, 0.3) !important;
+}
+
+body.dark .action-menu-btn {
+  color: #e5e7eb;
+}
+
+body.dark .action-menu-btn:hover {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Dark mode for avatar */
+body.dark .avatar {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+/* Dark mode for badges */
+body.dark .badge {
+  background: #ef4444;
+  color: white;
+}
+
+/* Dark mode transitions */
+body,
+.sidebar,
+.chat,
+.chat-header,
+.send,
+.dropdown-menu,
+.emoji-picker,
+.message-action-menu,
+.msg,
+.contact {
+  transition: background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Dark mode for links */
+body.dark a {
+  color: #60a5fa;
+}
+
+body.dark a:hover {
+  color: #93c5fd;
+}
+
+/* Dark mode scrollbar for entire page */
+body.dark::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+body.dark::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+/* Dark mode for profile row */
+body.dark .profile-row {
+  border-top-color: #374151;
+}
+
+/* ============================================
+   DROPDOWN ENHANCEMENT STYLES
+   ============================================ */
+
+/* Ensure dropdowns are positioned correctly */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  min-width: 280px;
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown.active .dropdown-menu {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-toggle {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.dark .dropdown-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-row {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-row label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.profile-row input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.profile-row input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 10px 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 8px;
+}
+
+.dropdown-menu button:hover {
+  background: #2563eb;
+}
+
+.dropdown-menu .muted {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Avatar image in profile */
+.avatar-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+body.dark .avatar-image {
+  background: #374151;
+  color: #9ca3af;
+}
+
+/* Mobile dropdown adjustments */
+@media (max-width: 900px) {
+  .dropdown-menu {
+    right: -8px;
+    min-width: 260px;
+    max-width: calc(100vw - 32px);
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown-menu {
+    right: -4px;
+    min-width: 240px;
+    padding: 12px;
+  }
+
+  .dropdown-title {
+    font-size: 15px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+
+  .profile-row {
+    margin-bottom: 12px;
+  }
+}
+
+/* Prevent dropdown from going off-screen */
+.dropdown-menu[style*="right: 0"] {
+  right: 0 !important;
+  left: auto !important;
+}
+
+/* Animation for dropdown appearance */
+@keyframes dropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown.active .dropdown-menu {
+  animation: dropdownSlideIn 0.2s ease forwards;
+}
+
+/* Ensure proper layering */
+.dropdown {
+  z-index: 100;
+}
+
+.dropdown.active {
+  z-index: 101;
+}
+
+.dropdown-menu {
+  z-index: 102;
+}
