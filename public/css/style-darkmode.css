@@ -1,5 +1,268 @@
 /* ============================================
-   DARK MODE STYLES - Add to your style.css
+   BASE STYLES FOR CONTACTS & MESSAGES
+   ============================================ */
+
+/* ===== CONTACTS SIDEBAR ===== */
+.contact {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.contact:hover {
+  background-color: #f5f5f5;
+}
+
+.contact.active {
+  background-color: #e3f2fd;
+  border-left: 3px solid #2196F3;
+}
+
+.contact.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.contact .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.contact .avatar.small {
+  width: 48px;
+  height: 48px;
+}
+
+.contact > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact .name {
+  font-weight: 500;
+  font-size: 15px;
+  color: #212121;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact .status {
+  font-size: 13px;
+  color: #757575;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact .badge {
+  background-color: #2196F3;
+  color: white;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+  display: none;
+}
+
+/* ===== MESSAGES AREA ===== */
+.msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  word-wrap: break-word;
+  position: relative;
+  animation: messageSlideIn 0.3s ease;
+  transition: background-color 0.2s ease, outline 0.2s ease;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.msg.me {
+  align-self: flex-end;
+  background-color: #2196F3;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.them {
+  align-self: flex-start;
+  background-color: #f1f3f4;
+  color: #212121;
+  border-bottom-left-radius: 4px;
+}
+
+.msg.selected {
+  background-color: #bbdefb !important;
+  outline: 2px solid #2196F3;
+}
+
+.msg time {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-top: 4px;
+  align-self: flex-end;
+}
+
+.msg.me time {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.msg.them time {
+  color: #757575;
+}
+
+.msg .msg-status {
+  font-size: 11px;
+  margin-left: 4px;
+  opacity: 0.7;
+}
+
+.msg .msg-status.status-delivered {
+  color: #4CAF50;
+  opacity: 1;
+}
+
+/* Message content styling */
+.msg a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.msg.me a {
+  color: #e3f2fd;
+}
+
+.msg.them a {
+  color: #1976D2;
+}
+
+.msg img.image-thumbnail {
+  max-width: 200px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 4px 0;
+}
+
+.msg audio {
+  max-width: 300px;
+  margin: 4px 0;
+}
+
+/* Messages container */
+#messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+#messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+#messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#messages::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+#messages::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Contact list container */
+#contacts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+}
+
+#contacts::-webkit-scrollbar {
+  width: 6px;
+}
+
+#contacts::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#contacts::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+#contacts::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Peer info styling (chat header) */
+#peer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 12px;
+}
+
+#peer-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #212121;
+}
+
+#peer-status {
+  font-size: 13px;
+  color: #757575;
+}
+
+/* ============================================
+   DARK MODE STYLES
    ============================================ */
 
 /* Dark mode for body */
@@ -37,7 +300,8 @@ body.dark {
   border-color: #3b82f6;
 }
 
-.sidebar.dark .contact-list::-webkit-scrollbar-thumb {
+.sidebar.dark .contact-list::-webkit-scrollbar-thumb,
+.sidebar.dark #contacts::-webkit-scrollbar-thumb {
   background: #4b5563;
 }
 
@@ -57,6 +321,7 @@ body.dark {
 /* Dark mode for contacts */
 .dark .contact {
   color: #e5e7eb;
+  border-bottom-color: #374151;
 }
 
 .dark .contact:hover {
@@ -65,6 +330,7 @@ body.dark {
 
 .dark .contact.active {
   background: #374151;
+  border-left-color: #3b82f6;
 }
 
 .dark .contact .name {
@@ -73,6 +339,14 @@ body.dark {
 
 .dark .contact .status {
   color: #9ca3af;
+}
+
+.dark .contact .avatar {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+}
+
+.dark .contact .badge {
+  background-color: #3b82f6;
 }
 
 /* Dark mode for chat area */
@@ -88,21 +362,42 @@ body.dark .chat-header {
   border-bottom-color: #374151;
 }
 
-body.dark .chat-peer .peer-name {
+body.dark .chat-peer .peer-name,
+body.dark #peer-name {
   color: #e5e7eb;
 }
 
-body.dark .chat-peer .peer-status {
+body.dark .chat-peer .peer-status,
+body.dark #peer-status {
   color: #9ca3af;
 }
 
+body.dark #peer-avatar {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+}
+
 /* Dark mode for messages area */
-body.dark .messages {
+body.dark .messages,
+body.dark #messages {
   background: #111827;
 }
 
-body.dark .messages::-webkit-scrollbar-thumb {
+body.dark .messages::-webkit-scrollbar-thumb,
+body.dark #messages::-webkit-scrollbar-thumb {
   background: #4b5563;
+}
+
+body.dark .messages::-webkit-scrollbar-track,
+body.dark #messages::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+body.dark #contacts::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+body.dark #contacts::-webkit-scrollbar-track {
+  background: #1f2937;
 }
 
 /* Dark mode for message bubbles */
@@ -116,12 +411,34 @@ body.dark .msg.them {
   color: #e5e7eb;
 }
 
+body.dark .msg.selected {
+  background-color: #1e40af !important;
+  outline-color: #60a5fa;
+}
+
 body.dark .msg time {
   color: rgba(255, 255, 255, 0.7);
 }
 
 body.dark .msg.them time {
   color: #9ca3af;
+}
+
+body.dark .msg .msg-status {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body.dark .msg .msg-status.status-delivered {
+  color: #4ade80;
+}
+
+/* Dark mode for message links */
+body.dark .msg.me a {
+  color: #dbeafe;
+}
+
+body.dark .msg.them a {
+  color: #60a5fa;
 }
 
 /* Dark mode for typing indicator */
@@ -227,6 +544,10 @@ body.dark .image-preview {
   border-color: #374151;
 }
 
+body.dark .image-preview img.image-thumbnail {
+  border: 1px solid #374151;
+}
+
 /* Dark mode for action menu (context menu) */
 body.dark .message-action-menu {
   background: rgba(31, 41, 55, 0.95) !important;
@@ -243,7 +564,7 @@ body.dark .action-menu-btn:hover {
 
 /* Dark mode for avatar */
 body.dark .avatar {
-  background: #374151;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   color: #e5e7eb;
 }
 
@@ -427,12 +748,40 @@ body.dark .avatar-image {
   color: #9ca3af;
 }
 
-/* Mobile dropdown adjustments */
+/* ============================================
+   MOBILE RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
 @media (max-width: 900px) {
+  .msg {
+    max-width: 85%;
+  }
+  
+  .contact {
+    padding: 10px 12px;
+  }
+  
+  .contact .avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+
   .dropdown-menu {
     right: -8px;
     min-width: 260px;
     max-width: calc(100vw - 32px);
+  }
+}
+
+@media (max-width: 600px) {
+  .msg {
+    max-width: 90%;
+    padding: 8px 12px;
+  }
+  
+  #messages {
+    padding: 12px;
   }
 }
 

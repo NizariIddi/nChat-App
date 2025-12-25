@@ -1,0 +1,403 @@
+/* ============================================
+   OPTIMIZED MEDIA RENDERING STYLES
+   ============================================ */
+
+/* Image thumbnail optimizations */
+.msg img.image-thumbnail {
+  max-width: 200px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 4px 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #f3f4f6;
+  object-fit: cover;
+}
+
+.msg img.image-thumbnail:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Image placeholder while loading */
+.image-placeholder {
+  position: relative;
+  min-height: 150px;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.image-placeholder img {
+  position: relative;
+  z-index: 1;
+}
+
+/* Audio player styling */
+.msg audio {
+  max-width: 100%;
+  width: 280px;
+  margin: 4px 0;
+  height: 48px;
+  border-radius: 24px;
+  outline: none;
+  background: transparent;
+}
+
+/* Hide download button in audio controls */
+.msg audio::-webkit-media-controls-enclosure {
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.msg audio::-webkit-media-controls-panel {
+  background-color: transparent;
+  border-radius: 24px;
+}
+
+/* Play button styling */
+.msg audio::-webkit-media-controls-play-button {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+}
+
+.msg audio::-webkit-media-controls-play-button:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+/* Timeline styling */
+.msg audio::-webkit-media-controls-timeline {
+  border-radius: 12px;
+}
+
+/* Dark mode audio player */
+body.dark .msg audio::-webkit-media-controls-enclosure {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark .msg audio::-webkit-media-controls-panel {
+  background-color: transparent;
+}
+
+body.dark .msg audio::-webkit-media-controls-play-button {
+  background-color: rgba(96, 165, 250, 0.15);
+}
+
+body.dark .msg audio::-webkit-media-controls-play-button:hover {
+  background-color: rgba(96, 165, 250, 0.25);
+}
+
+/* For Firefox */
+.msg audio::-moz-media-controls {
+  border-radius: 24px;
+}
+
+/* Custom audio wrapper for better control */
+.audio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 24px;
+  max-width: 300px;
+}
+
+body.dark .audio-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* File download link */
+.file-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #3b82f6;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.file-download:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.file-download i {
+  font-size: 14px;
+}
+
+body.dark .file-download {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+body.dark .file-download:hover {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+/* ============================================
+   IMAGE MODAL (FULL SCREEN VIEW)
+   ============================================ */
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.image-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.image-modal-content {
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.image-modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  animation: imageZoomIn 0.3s ease;
+}
+
+@keyframes imageZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.image-modal-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.image-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.image-modal-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(59, 130, 246, 0.9);
+  color: white;
+  text-decoration: none;
+  border-radius: 24px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.image-modal-download:hover {
+  background: rgba(59, 130, 246, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.image-modal-download i {
+  font-size: 16px;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 600px) {
+  .msg img.image-thumbnail {
+    max-width: 180px;
+  }
+  
+  .msg audio {
+    max-width: 250px;
+  }
+  
+  .image-modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .image-modal-content img {
+    max-height: 85vh;
+  }
+  
+  .image-modal-close {
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+  
+  .image-modal-download {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================
+   DARK MODE FOR MEDIA
+   ============================================ */
+
+body.dark .image-placeholder {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+}
+
+body.dark .msg img.image-thumbnail {
+  background: #374151;
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+/* Spinner for media loading */
+.media-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+.media-loading::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body.dark .media-loading {
+  color: #9ca3af;
+}
+
+body.dark .media-loading::before {
+  border-color: #4b5563;
+  border-top-color: #60a5fa;
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Use GPU acceleration for animations */
+.msg,
+.image-thumbnail,
+.image-modal-content img {
+  will-change: transform, opacity;
+}
+
+/* Prevent layout shift */
+.msg img.image-thumbnail {
+  width: auto;
+  height: auto;
+}
+
+/* Lazy loading hint */
+.msg img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Focus states for interactive elements */
+.image-thumbnail:focus,
+.file-download:focus,
+.image-modal-close:focus,
+.image-modal-download:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .msg img.image-thumbnail,
+  .image-modal,
+  .image-modal-content img,
+  .image-modal-close {
+    animation: none;
+    transition: none;
+  }
+  
+  .image-modal-close:hover {
+    transform: none;
+  }
+}

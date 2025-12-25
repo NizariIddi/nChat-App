@@ -49,8 +49,15 @@ export function setupSocketListeners(socket, renderMsg, selectContactCallback) {
     });
 
     socket.on('chat-message', (m) => {
-        renderMsg(m);
-        scrollBottom(DOM.messagesEl);
+        // Only render message if it's from/to the currently active chat
+        const isRelevantMessage = 
+            (m.sender_id === AppState.active && m.receiver_id === AppState.me.id) ||
+            (m.sender_id === AppState.me.id && m.receiver_id === AppState.active);
+        
+        if (isRelevantMessage) {
+            renderMsg(m);
+            scrollBottom(DOM.messagesEl);
+        }
 
         if (m.sender_id !== AppState.me.id && m.sender_id !== AppState.active) {
             AppState.unreadCounts[m.sender_id] = (AppState.unreadCounts[m.sender_id] || 0) + 1;

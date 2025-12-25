@@ -357,6 +357,7 @@ async function handleEnhancedDelete(selectedMessageElements) {
     let deleteOption = 'soft';
     let confirmMessage = '';
 
+    // Only show modal for own messages (hard delete option available)
     if (ownMessages.length > 0 && otherMessages.length === 0) {
         const result = await showDeleteOptionsModal(ownMessages.length);
         if (!result) return;
@@ -371,12 +372,18 @@ async function handleEnhancedDelete(selectedMessageElements) {
                 ? 'Remove this message from your chat?'
                 : `Remove ${ownMessages.length} messages from your chat?`;
         }
-    } else if (otherMessages.length > 0 && ownMessages.length === 0) {
+    } 
+    // For received messages only - soft delete only
+    else if (otherMessages.length > 0 && ownMessages.length === 0) {
+        deleteOption = 'soft'; // Force soft delete for received messages
         confirmMessage = otherMessages.length === 1 
             ? 'Remove this message from your chat? (It will still be visible to the sender)'
             : `Remove ${otherMessages.length} messages from your chat? (They will still be visible to the sender)`;
-    } else {
-        confirmMessage = `Remove ${AppState.selectedMessages.size} messages from your chat?`;
+    } 
+    // Mixed messages - soft delete only
+    else {
+        deleteOption = 'soft';
+        confirmMessage = `Remove ${AppState.selectedMessages.size} messages from your chat? (Your sent messages will still be visible to recipients)`;
     }
 
     if (confirm(confirmMessage)) {

@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="css/style-darkmode.css" />
     <link rel="stylesheet" href="css/selects.css" />
     <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/typing.css">
+    <link rel="stylesheet" href="css/media.css">
+
     <title>nChat</title>
   </head>
   <body>
@@ -193,43 +196,42 @@
           </div>
         </header>
         <ul class="messages" id="messages"></ul>
-        <div id="typing" class="typing hidden" data-i18n="typing">typing…</div>
-
-        <form id="send-form" class="send">
-          <button type="button" id="emoji-btn">😊</button>
-          <input
-            id="message-input"
-            placeholder="Type a message…"
-            data-i18n="type_message"
-            autocomplete="off"
-          />
-          <input
-            type="file"
-            id="file-input"
-            accept="image/*,audio/*"
-            style="display: none"
-          />
-          <button type="button" id="file-btn">📎</button>
-
-          <!-- Recording audio -->
-          <div id="audio-controls">
-            <i
-              id="record-button"
-              class="fas fa-microphone"
-              title="Record Audio"
-            ></i>
-            <i
-              id="stop-button"
-              class="fas fa-stop"
-              title="Stop Recording"
-              style="display: none"
-            ></i>
-            <audio id="audio-preview" controls hidden></audio>
+        <!-- Add this inside your messages container, typically just before the closing tag -->
+        <div class="typing hidden" id="typing-indicator">
+          <div class="typing-dots">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
           </div>
-          <button type="submit" data-i18n="send">Send</button>
+        </div>
+        <form id="send-form" class="send">
+      <button type="button" id="emoji-btn" aria-label="Emoji">😊</button>
 
-          <div id="emoji-picker" class="emoji-picker hidden"></div>
-        </form>
+      <input
+        id="message-input"
+        placeholder="Type a message…"
+        autocomplete="off"
+      ></input>
+
+      <input
+        type="file"
+        id="file-input"
+        accept="image/*,audio/*"
+        hidden
+      />
+      <button type="button" id="file-btn" aria-label="Attach">📎</button>
+
+      <div id="audio-controls">
+        <i id="record-button" class="fas fa-microphone"></i>
+        <i id="stop-button" class="fas fa-stop" style="display:none;"></i>
+        <audio id="audio-preview" controls hidden></audio>
+      </div>
+
+      <button type="submit" class="send-btn">➤</button>
+
+      <div id="emoji-picker" class="emoji-picker hidden"></div>
+    </form>
+
 
         <div id="image-preview" class="image-preview hidden">
           <img id="preview-img" src="" alt="Image Preview" />

@@ -57,33 +57,38 @@ export function filterContacts(searchTerm = '') {
     );
 }
 
+// In contacts.js, update the selectContact function:
 export async function selectContact(user, element, renderMsg, scrollBottom) {
     try {
         element.classList.add('loading');
         document.querySelectorAll('.contact').forEach(c => c.classList.remove('active'));
         element.classList.add('active');
-
+        
         AppState.active = user.id;
         DOM.peerName.textContent = user.username;
         DOM.peerStatus.textContent = getStatusText(user.status);
         initializeUserAvatar(DOM.peerAvatar, user);
+        
         DOM.messagesEl.innerHTML = '';
-
+        
         const res = await api('/api/messages/' + AppState.active);
         const msgs = await res.json();
-        msgs.forEach(renderMsg);
+        
+        // Use synchronous rendering for batch loading (faster initial load)
+        const { renderMsgSync } = await import('./messages.js');
+        msgs.forEach(renderMsgSync); // Use sync version for batch
+        
         scrollBottom();
-
-        if (typeof window.toggleSidebar === 'function') {
+        
+        if (typeof window.toggleSidebar === 'function' && window.innerWidth <= 900) {
             window.toggleSidebar(true);
         }
-
+        
         if (AppState.socket && AppState.socket.connected) {
             AppState.socket.emit('message-read', { partnerId: AppState.active });
         }
-
+        
         AppState.unreadCounts[user.id] = 0;
-
         const badge = element.querySelector('.badge');
         if (badge) {
             badge.textContent = '0';

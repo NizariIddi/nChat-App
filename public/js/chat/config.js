@@ -44,7 +44,8 @@ export const DOM = {
     fileBtn: document.getElementById('file-btn'),
     recordButton: document.getElementById('record-button'),
     stopButton: document.getElementById('stop-button'),
-    audioPreview: document.getElementById('audio-preview')
+    audioPreview: document.getElementById('audio-preview'),
+        typingEl: document.getElementById('typing-indicator'), // Add this line
 };
 
 export const EMOJIS = [
